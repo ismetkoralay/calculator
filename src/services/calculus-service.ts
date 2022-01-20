@@ -18,6 +18,10 @@ class CalculusService {
 
     parseString(input: string): TokenModel[] {
         
+        if(input === null || input === undefined || input.length === 0){
+            return [];
+        }
+        
         const decoded = stringExtensions.b64DecodeUnicode(input);
         const expression = decoded.trim();
         const tokensArray: TokenModel[] = [];

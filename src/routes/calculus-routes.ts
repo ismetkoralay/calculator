@@ -7,7 +7,7 @@ const router = Router();
 router.get("/", (req: Request, res: Response) => {
     const { query } = req.query;
     if (query === null || query === undefined || query.length === 0) {
-        res.status(500).send({ message: "query cannot be null" });
+        res.status(400).send({ message: "query cannot be null" });
         return;
     }
 
