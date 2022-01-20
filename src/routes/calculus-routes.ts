@@ -1,6 +1,7 @@
 import { Router, Request, Response } from "express";
 import { CustomError } from "../error/custom-error";
 import { calculusService } from "../services/calculus-service";
+import { parseService } from "../services/parse-service";
 
 const router = Router();
 
@@ -11,7 +12,7 @@ router.get("/", (req: Request, res: Response) => {
         return;
     }
 
-    const tokensArray = calculusService.parseString(query as string);
+    const tokensArray = parseService.parseString(query as string);
     if (tokensArray === null || tokensArray === undefined || !Array.isArray(tokensArray) || tokensArray.length <= 0) {
         throw new CustomError(400, "Invalid query.");
     }
