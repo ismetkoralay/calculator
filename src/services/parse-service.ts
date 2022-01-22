@@ -6,7 +6,7 @@ import { stringExtensions } from "../utils/string-extensions";
 class ParseService {
     
     parseString(input: string): TokenModel[] {
-        
+
         if(input === null || input === undefined || input.length === 0){
             return [];
         }
